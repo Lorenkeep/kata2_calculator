@@ -7,13 +7,13 @@ _widthBtn = 68
 class CalcDisplay(ttk.Frame):
     def __init__(self, parent, **kwargs):
         ttk.Frame. __init__(self, parent, height=_heightBtn, width=_widthBtn*4 )
-        #hace que se propage para rellenar el espacio
+        #hace que se propage para rellenar el espacio hay que ponerlo a (0)
         self.pack_propagate(0)
 
         s = ttk.Style()
-        s.configure("my.TLabel", font= "Helvetica 40")
+        s.configure("my.TLabel", font= "Helvetica 39")
 
-        self.lblDisplay =ttk.Label(self, text="0", style="my.TLabel", anchor=E)
+        self.lblDisplay =ttk.Label(self, text="0", style="my.TLabel", anchor=E, foreground="white", background="black")
         self.lblDisplay.pack(fill=BOTH, expand=True)
 
 
@@ -58,6 +58,7 @@ class MainApp(Tk):
     def __init__(self):
         Tk.__init__(self)
         self.title("Calculator")
+        #Geometri da el tamaño y las posicion opcional('400x300+5+28')
         self.geometry("{}x{}".format(_widthBtn*4, _heightBtn*6))
 
         self.calculator = Calculator(self, height=300, width=272)
